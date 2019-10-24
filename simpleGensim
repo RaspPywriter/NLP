@@ -1,0 +1,14 @@
+import wikipedia
+from gensim.summarization.summarizer import summarize
+#f= open('wikipedia.txt','w+')
+#using wikipedia package to scrape the site
+history = wikipedia.page('History_of_Europe')
+#standard summary is 8055 words
+long = summarize(history.content)
+#more condensed is 2810 words
+short = summarize((history.content), ratio=0.05)
+#print(long)
+print('The number of words in the long summary are: ' + str(len(long.split())))
+print('*****************************************short****************************************************')
+#print(short)
+print('The number of words in the short summary are: ' + str(len(short.split())))
